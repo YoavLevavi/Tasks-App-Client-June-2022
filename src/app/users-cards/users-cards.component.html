@@ -1,0 +1,22 @@
+<div class="vh-100">
+  <div class="mb-3">
+    <input
+      #searchInput
+      type="text"
+      placeholder="search"
+      (keyup)="setPresentedUsersByNameOrEmail(searchInput.value)"
+    />
+    <input
+      type="button"
+      value="search"
+      (click)="setPresentedUsersByNameOrEmail(searchInput.value)"
+    />
+    <input type="button" value="Add a new user" (click)="addUser()" />
+  </div>
+  <app-user-card
+    *ngFor="let item of presentedUsers"
+    [user]="item"
+    (sendSelectedId)="selectedUserId = $event"
+    [selectedUserId]="selectedUserId"
+  ></app-user-card>
+</div>

@@ -1,0 +1,20 @@
+<input
+  class="mt-5 mx-5"
+  type="button"
+  value="add task"
+  (click)="isAddTaskMode = !isAddTaskMode"
+/>
+
+<app-todo-card
+  *ngFor="let task of selectedUserTasks"
+  [title]="task.title"
+  [completed]="task.completed"
+  [selectedUser]="selectedUser"
+  [taskId]="task.taskId"
+  [task_id]="task._id"
+  [ngStyle]="{ display: isAddTaskMode == false ? 'block' : 'none' }"
+></app-todo-card>
+
+<app-add-task
+  [ngStyle]="{ display: isAddTaskMode == false ? 'none' : 'block' }"
+></app-add-task>

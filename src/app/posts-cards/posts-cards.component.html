@@ -1,0 +1,16 @@
+<input
+  class="mt-5 mx-5"
+  type="button"
+  value="add post"
+  (click)="isAddPostMode = !isAddPostMode"
+/>
+
+<app-post-card
+  *ngFor="let post of selectedUserPosts"
+  [post]="post"
+  [ngStyle]="{ display: isAddPostMode == false ? 'block' : 'none' }"
+></app-post-card>
+
+<app-add-post
+  [ngStyle]="{ display: isAddPostMode == false ? 'none' : 'block' }"
+></app-add-post>

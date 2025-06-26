@@ -1,0 +1,60 @@
+<div
+  style="border-style: solid"
+  class="mb-3"
+  [ngStyle]="{
+    'background-color': selectedUserId === user._id ? 'orange' : 'white',
+    'border-color': isUndoneTasks ? 'red' : 'green'
+  }"
+>
+  <h4 (click)="clickedUser()">ID: {{ user._id }}</h4>
+
+  Name:
+  <input
+    #name
+    type="text"
+    placeholder="name of the user"
+    value="{{ user.firstName }}"
+  /><br />
+  Email:
+  <input
+    #email
+    type="text"
+    placeholder="email of the user"
+    value="{{ user.email }}"
+  />
+  <br />
+  <div class="row mb-3">
+    <div class="col">
+      <input
+        type="button"
+        value="Other data"
+        (mouseover)="showOtherData = true"
+        (click)="showOtherData = false"
+      />
+    </div>
+    <!-- Street, zipcode, city  -->
+    <div [ngStyle]="{ display: showOtherData ? 'block' : 'none' }">
+      City: <input #city value="{{ user.city }}" />
+      <br />
+      Street: <input #street value="{{ user.street }}" />
+      <br />
+      zipCode: <input #zipCode value="{{ user.zipCode }}" />
+    </div>
+    <div class="col">
+      <input
+        type="button"
+        value="Update"
+        (click)="
+          updateUser(
+            name.value,
+            email.value,
+            zipCode.value,
+            street.value,
+            city.value
+          )
+        "
+      />
+      <input type="button" value="Delete" (click)="deleteUser()" />
+    </div>
+  </div>
+</div>

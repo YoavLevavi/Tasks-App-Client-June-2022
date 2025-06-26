@@ -1,0 +1,12 @@
+<div class="m-5" style="border-style: dashed">
+  Title: {{ title }}
+  <br />
+  Completed: {{ completed }}
+  <br />
+  <input
+    (click)="markCompleted()"
+    type="button"
+    *ngIf="!completed"
+    value="mark done"
+  />
+</div>

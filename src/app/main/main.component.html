@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row vh-100">
+    <app-users-cards
+      [presentedUsers]="presentedUsers"
+      [users]="users"
+      class="col-6"
+    ></app-users-cards>
+    <div class="col-6">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
