@@ -1,29 +1,29 @@
 # Tasks App Client
 
-**The client component for the Tasks App - Final project from the Technion Web Development Course (2022)**
+**The client component for the Tasks App - Final project from the Technion Web Development Course (June 2022)**
 
 > **Note:** Only this README file was created with the help of AI to provide clear project documentation.
 
 ## 📋 Project Description
 
-This is the frontend client for a comprehensive Task Management System built with React. It provides a user-friendly interface for managing tasks, projects, user assignments, and user authentication. The application communicates with a backend API server running on localhost:8000.
+This is the frontend client for a comprehensive Task Management System built with Angular. It provides a user-friendly interface for managing tasks, posts, and users. The application communicates with external APIs to fetch and manage data.
 
 ## ✨ Features
 
-- **User Authentication**: Login system with Redux state management
-- **Task Management**: Browse, search, add, edit, and delete tasks
-- **Project Management**: Handle project organization and task groupings
-- **Assignment System**: Track and manage user task assignments
-- **Route-based Navigation**: React Router for seamless navigation
-- **State Management**: Redux for global state handling
+- **User Management**: Browse, add, and manage users
+- **Task Management**: Browse, add, and manage tasks (todos)
+- **Post Management**: Browse, add, and manage posts
+- **Card-based UI**: Clean card interface for displaying data
+- **Service Architecture**: Angular services for API communication
+- **Component-based Design**: Modular Angular components
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 - Node.js (v14 or higher)
-- npm or yarn
-- Backend server running on `http://localhost:8000`
+- npm or Angular CLI
+- External APIs for users, tasks, and posts
 
 ### Installation
 
@@ -35,84 +35,81 @@ This is the frontend client for a comprehensive Task Management System built wit
    ```
 4. Start the development server:
    ```bash
-   npm start
+   ng serve
    ```
-5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser
+5. Open [http://localhost:4200](http://localhost:4200) to view it in the browser
 
 ## 📁 Project Structure
 
 ```
 src/
-├── App.js                 # Main App component
-├── index.js              # React app entry point
-├── AppReducer.js          # Redux reducer
-├── components/
-│   ├── MainComp.js        # Main component with routing
-│   ├── HomeComp.js        # Home page component
-│   ├── Login/
-│   │   └── LoginComp.js   # Login component
-│   ├── tasks/
-│   │   ├── TasksComp.js   # Tasks listing component
-│   │   ├── TaskComp.js    # Individual task component
-│   │   ├── CreateTaskComp.js # Add new task form
-│   │   ├── EditTaskComp.js   # Edit task form
-│   │   └── UserTasksComp.js  # User's assigned tasks
-│   ├── projects/
-│   │   ├── ProjectsComp.js # Projects listing component
-│   │   ├── ProjectComp.js  # Individual project component
-│   │   ├── AddProjectComp.js # Add project form
-│   │   └── EditProjectComp.js # Edit project form
-│   └── assignments/
-│       ├── AssignmentsComp.js # Assignments main component
-│       ├── AssignmentComp.js  # Assignment details component
-│       └── AddAssignmentComp.js # Add assignment form
-└── services/
-    ├── UserService.js     # User API calls
-    ├── TaskService.js     # Task API calls
-    ├── ProjectService.js  # Project API calls
-    └── AssignmentService.js # Assignment API calls
+├── main.ts                # Angular app entry point
+├── index.html            # Main HTML file
+├── styles.css            # Global styles
+├── app/
+│   ├── app.component.ts   # Root component
+│   ├── app.module.ts      # Main app module
+│   ├── services/
+│   │   ├── user.service.ts    # User API service
+│   │   ├── task.service.ts    # Task API service
+│   │   └── post.service.ts    # Post API service
+│   ├── components/
+│   │   ├── main/              # Main component
+│   │   ├── users-cards/       # Users listing component
+│   │   ├── user-card/         # Individual user card
+│   │   ├── add-user/          # Add user form
+│   │   ├── todos-cards/       # Tasks listing component
+│   │   ├── todo-card/         # Individual task card
+│   │   ├── add-task/          # Add task form
+│   │   ├── posts-cards/       # Posts listing component
+│   │   ├── post-card/         # Individual post card
+│   │   ├── add-post/          # Add post form
+│   │   ├── extra-info/        # Additional information component
+│   │   └── other-data/        # Other data component
+│   └── environments/
+│       ├── environment.ts     # Development environment
+│       └── environment.prod.ts # Production environment
 ```
 
 ## 🔧 Technologies Used
 
-- **React** - Frontend framework
-- **React Router** - Client-side routing
-- **Redux** - State management
-- **Axios** - HTTP client for API calls
-- **Bootstrap** - CSS framework for styling
-- **Query String** - URL query parameter parsing
+- **Angular** - Frontend framework
+- **TypeScript** - Programming language
+- **Angular CLI** - Development tools
+- **RxJS** - Reactive programming
+- **HTTP Client** - API communication
+- **Angular Components** - UI building blocks
 
 ## 🌐 API Integration
 
-The client communicates with the backend API server at `http://localhost:8000/api/` for:
+The client communicates with external APIs for:
 
-- **Users**: Authentication and user management
-- **Tasks**: Task catalog operations
-- **Projects**: Project management
-- **Assignments**: Task assignment tracking
+- **Users**: User management and data fetching
+- **Tasks (Todos)**: Task management operations
+- **Posts**: Post content management
 
 ## 📱 Application Flow
 
-1. **Login**: Users authenticate through the login component
-2. **Navigation**: Access to Tasks, Projects, and User Management
-3. **Tasks**: View, search, add, edit, and delete tasks
-4. **Projects**: Manage project organization and task groupings
-5. **Assignments**: Handle user task assignments and progress tracking
+1. **Main Component**: Central navigation and layout
+2. **Users**: View, add, and manage users through card interface
+3. **Tasks**: Browse and manage todos with card-based display
+4. **Posts**: Handle post creation and viewing
+5. **Extra Info**: Additional data and information display
 
 ## 🎯 Key Components
 
-- [`MainComp`](src/components/MainComp.js) - Main application wrapper with routing
-- [`LoginComp`](src/components/Login/LoginComp.js) - User authentication
-- [`TasksComp`](src/components/tasks/TasksComp.js) - Task management interface
-- [`ProjectsComp`](src/components/projects/ProjectsComp.js) - Project management
-- [`AssignmentsComp`](src/components/assignments/AssignmentsComp.js) - Assignment management
+- `AppComponent` - Root application component
+- `MainComponent` - Main application layout
+- `UsersCardsComponent` - Users listing interface
+- `TodosCardsComponent` - Tasks management interface
+- `PostsCardsComponent` - Posts management interface
 
 ## 🔧 Available Scripts
 
-- `npm start` - Runs the app in development mode
-- `npm test` - Launches the test runner
-- `npm run build` - Builds the app for production
-- `npm run eject` - Ejects from Create React App
+- `ng serve` - Runs the app in development mode
+- `ng build` - Builds the app for production
+- `ng test` - Runs unit tests via Karma
+- `ng lint` - Lints the project files
 
 ---
 
@@ -120,6 +117,6 @@ The client communicates with the backend API server at `http://localhost:8000/ap
 
 1. This project was created before ChatGPT and the AI era!
 2. Developed during June 2022 as part of the Technion Web Development Course
-3. Requires the backend server to be running on port 8000
+3. Built with Angular framework and TypeScript
 
 **Contact**: yoavlevavi@gmail.com, +972 50-331-1442
